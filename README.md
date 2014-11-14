@@ -5,8 +5,9 @@ This script helps you convert  a JSON/JavaScript object into an HTTP GET request
 
 ##Usage
 
+###Test Data
 ```JavaScript
-> var testData = {
+{
     "name": "John",
     "age": 31,
     "schools": [
@@ -45,7 +46,10 @@ This script helps you convert  a JSON/JavaScript object into an HTTP GET request
         ]
     }
 };
+```
 
+###JS
+```JavaScript
 > var mappedString = mapJSONToUriParams(testData); //get non-encoded string
 ```
 
@@ -65,6 +69,17 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 
 ```JavaScript
 > var restoredData = mapUriParamsToJSON(URIString); //takes encoded/non-encoded string
+```
+
+###PHP
+```php
+
+$mappedString = MapJSONUri::mapJSONToUriParams($testData);
+
+$uriencodedData = urlencode($serializedData);
+
+$recoveredData = MapJSONUri::mapUriParamsToJSON($uriencodedData);
+
 ```
 
 
