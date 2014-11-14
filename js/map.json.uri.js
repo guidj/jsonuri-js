@@ -1,5 +1,5 @@
 /*
- * guidj@github
+ * guidj@bitbucket
  */
 
 function decodeUriParam(value){

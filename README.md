@@ -1,6 +1,6 @@
 #Map JSON to URI
  
-This script helps you convert  a JSON/JavaScript object into a HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET parameters into a JSON/JavaScript object.
+This script helps you convert  a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
 
 
 ##Usage
@@ -67,6 +67,11 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 > var restoredData = mapUriParamsToJSON(URIString); //takes encoded/non-encoded string
 ```
 
+
+##Notes
+The script was not designed to process HTML form data, specifically multi-value variables, i.e. from select attributes. Though if you convert the data to a JSON/JavaScript object, that should work.
+
+ 
 Feel free to use it.
 
 Cheers
