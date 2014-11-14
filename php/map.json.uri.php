@@ -52,7 +52,7 @@ class MapJSONUri{
             $extractedKey = substr($key, 0, $indexOfObjectSep);
             $remainingKey = substr($key, $indexOfObjectSep + 1);
 
-            echo "ObjectFirst: {{$extractedKey}}|{{$remainingKey}}\n";
+            #echo "ObjectFirst: {{$extractedKey}}|{{$remainingKey}}\n";
             
             if ( !(property_exists($object, $extractedKey) ) ):
                 $object[$extractedKey] = new ArrayObject(array(), ArrayObject::ARRAY_AS_PROPS);
@@ -69,7 +69,7 @@ class MapJSONUri{
             $extractedKey = substr($key, 0, $indexOfArray);
             $remainingKey = substr($key, strpos($key, "]") + 1);
             
-            echo "ArrayFirst: {{$extractedKey}}|{{$remainingKey}}\n";
+            #echo "ArrayFirst: {{$extractedKey}}|{{$remainingKey}}\n";
             
             if ( !(property_exists($object, $extractedKey) ) ):
                 $object[$extractedKey] = array();//new ArrayObject(array(), ArrayObject::ARRAY_AS_PROPS);
@@ -77,7 +77,7 @@ class MapJSONUri{
             
             $index = (int) substr($key, $indexOfArray + 1, strpos($key, "]") - 1);
             
-            echo "Index: {{$index}}\n";
+            #echo "Index: {{$index}}\n";
             
             if ( !(array_key_exists($index, $object[$extractedKey])) ):
                 $object[$extractedKey][$index] = new ArrayObject(array(), ArrayObject::ARRAY_AS_PROPS);
@@ -90,7 +90,7 @@ class MapJSONUri{
             endif;
         else:
             
-            echo "K, V {{$key}}|{{$value}}\n";
+            #echo "K, V {{$key}}|{{$value}}\n";
             $object["$key"] = $value;
             
         endif;
