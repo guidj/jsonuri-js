@@ -37,7 +37,7 @@ function mapJSONToUriParams(data, prefix, call){
         });      
         
     }else{
-        map.push(prefix + "=" + data);
+        map.push(prefix + "=" + encodeURIComponent(data));
     }   
         
     return map.join("&");
@@ -96,6 +96,10 @@ function mapUriParamsToJSON(data, object, call){
     
     if (call === 0){
         data = decodeURIComponent(data).split("&");
+        
+        for (var key in data){
+            data[key] = decodeURI(data[key]);
+        }
         
         for (var i = 0; i < data.length; i++){
             mapUriParamsToJSON(data[i], object, call + 1);
