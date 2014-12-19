@@ -11,7 +11,7 @@ This script helps you convert  a JSON/JavaScript object into an HTTP GET request
     "name": "John",
     "age": 31,
     "schools": [
-        "School A", "School B", "School C"
+        "School A & B", "School B & D", "School C &amp; AFG"
     ],
     "friends": [
         {
@@ -45,7 +45,7 @@ This script helps you convert  a JSON/JavaScript object into an HTTP GET request
             }
         ]
     }
-};
+}
 ```
 
 ###JS
