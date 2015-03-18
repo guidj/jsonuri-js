@@ -1,6 +1,14 @@
-#Map JSON to URI
+#JSONURI-JS
  
 This script helps you convert  a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
+
+An example of a practical application would be to send JSON data over HTTP GET, e.g. to a static resource small.png, and harvest the data from access logs instead of running real-time data collection.
+
+**Note**: You should avoid send sensitive information using this mechanism, or at least ensure you send your data over SSL.
+
+#Equivalent libs/packages:
+* Python: [jsonuri-py](https://bitbucket.org/guidj/jsonuri-py)
+* PHP: [jsonuri-php](https://bitbucket.org/guidj/jsonuri-php)
 
 
 ##Usage
