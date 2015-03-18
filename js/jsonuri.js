@@ -1,6 +1,7 @@
 /*
  * guidj@bitbucket
  */
+"use strict";
 
 function decodeUriParam(value){
     var values = value.split("=");
@@ -19,7 +20,7 @@ function mapJSONToUriParams(data, prefix, call){
 
         for (var ik = 0; ik < data.length; ik++){
             map.push(mapJSONToUriParams(data[ik], prefix + "[" + ik + "]", call + 1));
-        };
+        }
         
     }else if ( Object.prototype.toString.call( data ) === '[object Object]' ) {
         Object.keys(data).map(function(k){
