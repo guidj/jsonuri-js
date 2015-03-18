@@ -71,17 +71,6 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 > var restoredData = mapUriParamsToJSON(URIString); //takes encoded/non-encoded string
 ```
 
-###PHP
-```php
-
-$mappedString = MapJSONUri::mapJSONToUriParams($testData);
-
-$uriencodedData = urlencode($serializedData);
-
-$recoveredData = MapJSONUri::mapUriParamsToJSON($uriencodedData);
-
-```
-
 
 ##Notes
 The script was not designed to process HTML form data, specifically multi-value variables, i.e. from select attributes. Though if you convert the data to a JSON/JavaScript object, that should work.
