@@ -1,6 +1,7 @@
 var testData = {
     "name": "John",
     "age": 31,
+    "profile": "http://profiles/professionals/who.cgi?id=269260&full=yes",
     "schools": [
         "School A & B", "School B & D", "School C &amp; AFG"
     ],
@@ -39,17 +40,15 @@ var testData = {
 };
 
 (function() {
-
+    
+    //var testData = {img_url: "http://55.76.my/shop/wolthuis.aspx?productid=269260&size=medium"};
     var mappedData = mapJSONToUriParams(testData);
     console.log("Test Data:");
     console.log(testData);
     console.log("Converted format:");
     console.log(mappedData);
-    console.log("URI encoded");
-    var uriMappedData = encodeURIComponent(mappedData);
-    console.log(uriMappedData);
     console.log("An attempt are restoration");
-    var recoveredData = mapUriParamsToJSON(uriMappedData);
+    var recoveredData = mapUriParamsToJSON(mappedData);
     console.log(recoveredData);
 
     //console.log("Original Data:");
@@ -63,13 +62,8 @@ var testData = {
     document.write("<h2>Serialized Data:</h2>");
     document.write("<p>" + mappedData + "</p>");
 
-    document.write("<h2>URI Encoding:</h2>");
-    document.write("<p>" + uriMappedData + "</p>");
-
     document.write("<h2>Recovered Data:</h2>");
     document.write("<p>" + JSON.stringify(recoveredData) + "</p>");
-    
-    
 
 
 })();

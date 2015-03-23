@@ -9,17 +9,18 @@ function decodeUriParam(value){
     return {"key": decodeURIComponent(values[0]), "value": decodeURIComponent(values[1])};
 }
 
-function mapJSONToUriParams(data, prefix, call){
+function mapJSONToUriParams(data, encode, prefix, call){
     
     prefix = typeof prefix !== 'undefined' ? prefix : "";
     call = typeof call !== 'undefined' ? call : 0;
+    encode = typeof encode !== 'undefined' ? encode : true;
 
     var map = [];
     
     if( Object.prototype.toString.call( data ) === '[object Array]' ) {
 
         for (var ik = 0; ik < data.length; ik++){
-            map.push(mapJSONToUriParams(data[ik], prefix + "[" + ik + "]", call + 1));
+            map.push(mapJSONToUriParams(data[ik], encode, prefix + "[" + ik + "]", call + 1));
         }
         
     }else if ( Object.prototype.toString.call( data ) === '[object Object]' ) {
@@ -34,15 +35,24 @@ function mapJSONToUriParams(data, prefix, call){
                 }
             }
             
-            map.push(mapJSONToUriParams(data[k], prefix + sep + k, call + 1));
+            map.push(mapJSONToUriParams(data[k], encode, prefix + sep + k, call + 1));
         });      
         
     }else{
         map.push(prefix + "=" + encodeURIComponent(data));
     }   
+    
+    if (call == 0 && encode == true){
+
+        for (var i = 0; i < map.length; i++){
+            map[i] = encodeURIComponent(map[i]);
+        }
+    }
         
     return map.join("&");
 }
+
+
 
 function mapObjectKey(key, value, object){
     

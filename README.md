@@ -52,7 +52,8 @@ An example of a practical application would be to send JSON data over HTTP GET, 
                 }
             }
         ]
-    }
+    },
+    "img_url": 
 }
 ```
 
