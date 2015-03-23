@@ -18,6 +18,7 @@ An example of a practical application would be to send JSON data over HTTP GET, 
 {
     "name": "John",
     "age": 31,
+    "profile": "http://profiles/professionals/who.cgi?id=269260&full=yes",
     "schools": [
         "School A & B", "School B & D", "School C &amp; AFG"
     ],
