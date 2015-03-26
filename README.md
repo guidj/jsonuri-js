@@ -78,7 +78,7 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 ```
 
 ```JavaScript
-> var restoredData = mapUriParamsToJSON(URIString); //takes encoded/non-encoded string
+> var restoredData = mapUriParamsToJSON(URIString, false); //takes encoded/non-encoded string
 ```
 
 
