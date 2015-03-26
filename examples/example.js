@@ -39,16 +39,16 @@ var testData = {
     }
 };
 
+
 (function() {
     
-    //var testData = {img_url: "http://55.76.my/shop/wolthuis.aspx?productid=269260&size=medium"};
     var mappedData = mapJSONToUriParams(testData);
     console.log("Test Data:");
     console.log(testData);
     console.log("Converted format:");
     console.log(mappedData);
     console.log("An attempt are restoration");
-    var recoveredData = mapUriParamsToJSON(mappedData);
+    var recoveredData = mapUriParamsToJSON(mappedData, false);
     console.log(recoveredData);
 
     //console.log("Original Data:");
@@ -64,7 +64,6 @@ var testData = {
 
     document.write("<h2>Recovered Data:</h2>");
     document.write("<p>" + JSON.stringify(recoveredData) + "</p>");
-
 
 })();
 

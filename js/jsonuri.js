@@ -100,12 +100,18 @@ function mapObjectKey(key, value, object){
     }
 }
 
-function mapUriParamsToJSON(data, object, call){
+function mapUriParamsToJSON(data, decodeTwice, object, call){
     
     call = typeof call !== 'undefined' ? call : 0;
+    decodeTwice = typeof decodeTwice !== 'undefined' ? decodeTwice : true;
     object = typeof object !== 'undefined' ? object : {};
     
     if (call === 0){
+        
+        if (decodeTwice){
+            data = decodeURI(data);
+        }
+        
         data = decodeURIComponent(data).split("&");
         
         for (var key in data){
@@ -113,7 +119,7 @@ function mapUriParamsToJSON(data, object, call){
         }
         
         for (var i = 0; i < data.length; i++){
-            mapUriParamsToJSON(data[i], object, call + 1);
+            mapUriParamsToJSON(data[i], decodeTwice, object, call + 1);
         }        
     }else{
         //decode data
