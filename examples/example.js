@@ -1,3 +1,4 @@
+// Data
 var testData = {
     "name": "John",
     "age": 31,
@@ -39,31 +40,44 @@ var testData = {
     }
 };
 
+if (!library)
+   var library = {};
+
+library.json = {
+   replacer: function(match, pIndent, pKey, pVal, pEnd) {
+      var key = '<span class=json-key>';
+      var val = '<span class=json-value>';
+      var str = '<span class=json-string>';
+      var r = pIndent || '';
+      if (pKey)
+         r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+      if (pVal)
+         r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+      return r + (pEnd || '');
+      },
+   prettyPrint: function(obj) {
+      var jsonLine = /^( *)("[\w]+": )?("[^"]*"|[\w.+-]*)?([,[{])?$/mg;
+      return JSON.stringify(obj, null, 3)
+         .replace(/&/g, '&amp;').replace(/\\"/g, '&quot;')
+         .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+         .replace(jsonLine, library.json.replacer);
+      }
+   };
 
 (function() {
-    
+
+    document.getElementById("test-data").innerHTML = library.json.prettyPrint(testData);
+
     var mappedData = mapJSONToUriParams(testData);
+    var recoveredData = mapUriParamsToJSON(mappedData, false);
+
+    document.getElementById("serialized-data").innerHTML = mappedData.length > 10 ? mappedData.substring(0, 75) + "...": mappedData;
+    document.getElementById("recovered-data").innerHTML = library.json.prettyPrint(recoveredData);
     console.log("Test Data:");
     console.log(testData);
     console.log("Converted format:");
     console.log(mappedData);
     console.log("An attempt are restoration");
-    var recoveredData = mapUriParamsToJSON(mappedData, false);
     console.log(recoveredData);
 
-    //console.log("Original Data:");
-    //console.log(testData);
-    
-    document.write("<h1>JSONURI: Example</h1>");
-    document.write("<p>Check console and source code</p>");
-    document.write("<h2>Test Data:</h2>");
-    document.write("<p>" + JSON.stringify(testData) + "</p>");
-
-    document.write("<h2>Serialized Data:</h2>");
-    document.write("<p>" + mappedData + "</p>");
-
-    document.write("<h2>Recovered Data:</h2>");
-    document.write("<p>" + JSON.stringify(recoveredData) + "</p>");
-
 })();
-
