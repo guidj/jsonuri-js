@@ -8,7 +8,6 @@ An example of a practical application would be to send JSON data over HTTP GET, 
 
 #Equivalent libs/packages:
 * Python: [jsonuri-py](https://bitbucket.org/guidj/jsonuri-py)
-* PHP: [jsonuri-php](https://bitbucket.org/guidj/jsonuri-php)
 
 
 ##Usage
