@@ -1,13 +1,18 @@
 #JSONURI-JS
- 
-This script helps you convert  a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
+
+This script helps you convert a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
 
 An example of a practical application would be to send JSON data over HTTP GET, e.g. to a static resource small.png, and harvest the data from access logs instead of running real-time data collection.
 
+The library is written is TypeScript. You need only to compile it to JavaScript and minify it to deploy.
+
 **Note**: You should avoid send sensitive information using this mechanism, or at least ensure you send your data over SSL.
 
-#Equivalent libs/packages:
-* Python: [jsonuri-py](https://bitbucket.org/guidj/jsonuri-py)
+#Complementary libs/packages:
+
+| Language | Repo                                |
+|----------|-------------------------------------|
+| Python   | https://github.com/guidj/jsonuri-py |
 
 
 ##Usage
@@ -53,7 +58,7 @@ An example of a practical application would be to send JSON data over HTTP GET, 
             }
         ]
     },
-    "img_url": 
+    "img_url":
 }
 ```
 
@@ -64,7 +69,7 @@ An example of a practical application would be to send JSON data over HTTP GET, 
 
 ```URL
 > console.log(mappedString);
-name=John&age=31&schools[0]=School A&schools[1]=School B&schools[2]=School C&friends[0]name=Mary&friends[0]age=27&friends[1]name=Susan&friends[1]age=35&family:parents[0]relation=father&family:parents[0]name=Doe&family:parents[1]relation=mother&family:parents[1]name=Jane&family:siblings[0]sister1:name=Ana&family:siblings[0]sister1:age=26&family:siblings[0]sister1:children[0]=Eric&family:siblings[0]sister1:children[1]=Lane 
+name=John&age=31&schools[0]=School A&schools[1]=School B&schools[2]=School C&friends[0]name=Mary&friends[0]age=27&friends[1]name=Susan&friends[1]age=35&family:parents[0]relation=father&family:parents[0]name=Doe&family:parents[1]relation=mother&family:parents[1]name=Jane&family:siblings[0]sister1:name=Ana&family:siblings[0]sister1:age=26&family:siblings[0]sister1:children[0]=Eric&family:siblings[0]sister1:children[1]=Lane
 ```
 
 ```JavaScript
@@ -84,7 +89,7 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 ##Notes
 The script was not designed to process HTML form data, specifically multi-value variables, i.e. from select attributes. Though if you convert the data to a JSON/JavaScript object, that should work.
 
- 
+
 Feel free to use it.
 
 Cheers
