@@ -57,8 +57,7 @@ The library is written is TypeScript. You need only to compile it to JavaScript 
                 }
             }
         ]
-    },
-    "img_url":
+    }
 }
 ```
 
