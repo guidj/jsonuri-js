@@ -53,12 +53,7 @@ function mapJSONToUriParams(data, encode: boolean=true, prefix: string=""){
       return map.join("&");
   }
 
-  var paramertersText =  JSONToUriParams(data, encode, prefix, 0);
-
-
-
   return JSONToUriParams(data, encode, prefix, 0)
-
 }
 
 function mapObjectKey(key: string, value: string, object: Object){
@@ -139,5 +134,4 @@ function mapUriParamsToJSON(uriString: string, decodeTwice: boolean=true){
   var parameters = {}
 
   return UriParamsToJSON(uriString, decodeTwice, parameters, 0)
-
 }
