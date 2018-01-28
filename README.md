@@ -1,4 +1,4 @@
-#JSONURI-JS
+# JSONURI-JS
 
 This script helps you convert a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
 
@@ -15,9 +15,9 @@ The library is written is TypeScript. You need only to compile it to JavaScript 
 | Python   | https://github.com/guidj/jsonuri-py |
 
 
-##Usage
+## Usage
 
-###Test Data
+### Test Data
 ```JavaScript
 {
     "name": "John",
@@ -61,7 +61,7 @@ The library is written is TypeScript. You need only to compile it to JavaScript 
 }
 ```
 
-###JS
+### JS
 ```JavaScript
 > var mappedString = mapJSONToUriParams(testData); //get non-encoded string
 ```
@@ -85,7 +85,7 @@ name%3DJohn%26age%3D31%26schools%5B0%5D%3DSchool%20A%26schools%5B1%5D%3DSchool%2
 ```
 
 
-##Notes
+## Notes
 The script was not designed to process HTML form data, specifically multi-value variables, i.e. from select attributes. Though if you convert the data to a JSON/JavaScript object, that should work.
 
 
