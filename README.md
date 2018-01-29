@@ -1,4 +1,6 @@
-# JSONURI-JS
+# JSONURI-JS [NEEDS-TO-BE-UPDATED]
+
+The originial design has been changed in [jsonuri-py](https://github.com/guidj/jsonuri-py). Now, instead of this custom serialization, we just turn the JSON to a string, compress it using Gzip, and encoded it as Base64 before applying HTTP escaping for transfer as an HTTP parameter value. This JS version does not yet reflect this
 
 This script helps you convert a JSON/JavaScript object into an HTTP GET request parameters. The reverse is also possible, i.e. convert HTTP GET request parameters into a JSON/JavaScript object.
 
@@ -8,7 +10,7 @@ The library is written is TypeScript. You need only to compile it to JavaScript 
 
 **Note**: You should avoid send sensitive information using this mechanism, or at least ensure you send your data over SSL.
 
-#Complementary libs/packages:
+## Complementary libs/packages:
 
 | Language | Repo                                |
 |----------|-------------------------------------|
